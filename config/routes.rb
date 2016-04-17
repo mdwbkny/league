@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get 'champions' => 'users#champions'
   get 'sacko' => 'users#sacko'
   
+  resources :charges
 end

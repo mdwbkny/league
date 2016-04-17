@@ -4,6 +4,7 @@
 
 .title, .welcome {
 	font-family: 'Lobster', cursive;
+	font-size: 550%;
 }
 
 #footer {
@@ -11,5 +12,15 @@
 }
 
 #menu {
+	text-align: center;
+}
+
+.titles {
+	text-align: center;
+	font-family: 'Lobster', cursive;
+	font-size: 350%;
+}
+
+tbody {
 	text-align: center;
 }
