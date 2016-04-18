@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  devise_for :users
   root 'users#home'
   resources :users
   get 'teams'=> 'users#index'
@@ -9,4 +10,7 @@ Rails.application.routes.draw do
   get 'sacko' => 'users#sacko'
   
   resources :charges
+
+  devise_for :users
+
 end
