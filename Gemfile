@@ -3,8 +3,6 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # PostgreSQL
 gem 'pg'
 # Use SCSS for stylesheets
@@ -30,6 +28,8 @@ gem 'stripe'
 
 # Authentication
 gem 'devise'
+
+gem 'sqlite3'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
