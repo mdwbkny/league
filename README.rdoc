@@ -1,28 +1,11 @@
-== README
+THE LEAGUE - 2016/2017
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is just a way for me to collect fantasy football dues for the upcoming season.
 
-Things you may want to cover:
+Built using Ruby on Rails, Bootstrap, Devise, and Stripe.
 
-* Ruby version
+Contact me, mike@mdwbkny.com if you'd like one for your league.
 
-* System dependencies
+Thanks!
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+-Mike
