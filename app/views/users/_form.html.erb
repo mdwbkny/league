@@ -10,32 +10,37 @@
       </ul>
     </div>
   <% end %>
-
+<div class="narrow-form-container">
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :name, class: "general-text-label" %><br>
+    <%= f.text_field :name, class: "general-text-field" %>
   </div>
   <div class="field">
-    <%= f.label :team %><br>
-    <%= f.text_field :team %>
+    <%= f.label :team, class: "general-text-label" %><br>
+    <%= f.text_field :team, class: "general-text-field" %>
   </div>
   <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <%= f.label :email, class: "general-text-label" %><br>
+    <%= f.text_field :email, class: "general-text-field" %>
   </div>
   <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
+    <%= f.label :phone, class: "general-text-label" %><br>
+    <%= f.text_field :phone, class: "general-text-field" %>
   </div>
   <div class="field">
-    <%= f.label :paid %><br>
+    <%= f.label :paid, class: "general-text-label" %><br>
     <%= f.check_box :paid %>
   </div>
   <div class="field">
-    <%= f.label :date_paid %><br>
+    <%= f.label :date_paid, class: "general-text-label" %><br>
     <%= f.datetime_select :date_paid %>
   </div>
+  <div class="field">
+    <%= f.label :admin, class: "general-text-label" %><br>
+    <%= f.check_box :admin %>
+  </div><br>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+</div>

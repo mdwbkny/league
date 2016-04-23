@@ -18,9 +18,61 @@
 .titles {
 	text-align: center;
 	font-family: 'Lobster', cursive;
-	font-size: 350%;
+	font-size: 400%;
+	padding: 0 0 10 0px;
 }
 
 tbody {
 	text-align: center;
+}
+
+div.narrow-form-container {
+  /* Positioning */
+  /* Box-model */
+  padding: 25px;
+  margin: 0 auto;
+  max-width: 800px;
+  /* Typography */
+  /* Visual */
+  background-color: #fff;
+  /* Misc */
+}
+
+.general-text-label {
+  /* Positioning */
+  /* Box-model */
+  margin-top: 20px;
+  margin-bottom: 10px;
+  /* Typography */
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  /* Visual */
+  /* Misc */
+}
+
+.general-text-field {
+  /* Positioning */
+  /* Box-model */
+  padding: 13px;
+  width: 100%;
+  /* Typography */
+  font-size: 16px;
+  font-weight: 300;
+  /* Visual */
+  border: 1px solid #ddd;
+  /* Misc */
+  outline: 0;
+  -webkit-transition: all 400ms ease-in-out;
+     -moz-transition: all 400ms ease-in-out;
+          transition: all 400ms ease-in-out;
+  &:active, &:focus {
+    /* Positioning */
+    /* Box-model */
+    /* Typography */
+    /* Visual */
+    border-color: #2f79e7;
+    /* Misc */
+  }
 }
