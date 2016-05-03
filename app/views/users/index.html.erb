@@ -1,7 +1,5 @@
 <% content_for :title, "The League - The Teams" %>
 
-<p id="notice"><%= notice %></p>
-
 <h1 class="titles">The Teams</h1>
 
 <table class="table table-striped table-bordered">
@@ -12,7 +10,6 @@
       <th>Email</th>
       <th>Phone</th>
       <th>Paid</th>
-      <th>Date paid</th>
       <th colspan="3">Actions</th>
     </tr>
   </thead>
@@ -25,7 +22,6 @@
         <td><%= user.email %></td>
         <td><%= number_to_phone(user.phone) %></td>
         <td><%= user.paid %></td>
-        <td><%= user.date_paid.strftime('%b %d %Y') %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -33,9 +29,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<center>
-<%= link_to 'New User', new_user_path, class:"btn btn-primary" %>
-</center><br><br>

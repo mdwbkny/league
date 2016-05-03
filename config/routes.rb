@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   
-  devise_for :users
   root 'users#home'
   resources :users
   get 'teams'=> 'users#index'
