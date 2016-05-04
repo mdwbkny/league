@@ -29,6 +29,10 @@ gem 'stripe'
 # CanCan
 gem 'cancancan', '~> 1.10'
 
+# OmniAuth
+gem 'omniauth', '~> 1.3'
+gem 'omniauth-auth0', '~> 1.4'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
