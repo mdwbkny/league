@@ -15,7 +15,7 @@
 
 <p>
   <strong>Phone:</strong>
-  <%= @user.phone %>
+  <%= number_to_phone(@user.phone) %>
 </p>
 
 <p>
@@ -25,7 +25,7 @@
 
 <p>
   <strong>Date paid:</strong>
-  <%= @user.date_paid %>
+  <%= @user.date_paid.strftime("%D @ %I:%M%P") %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Edit', edit_user_path(@user), class:"btn btn-primary" %>

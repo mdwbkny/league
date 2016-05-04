@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)https://stripe.com/docs/checkout/tutorial -->
+<html lang="en" class="wf-proximanova-n4-active wf-proximanova-n6-active wf-active"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Integrating Checkout</title>
+    <link rel="stylesheet" type="text/css" href="./Integrating Checkout_files/site-1a86723bff9c38e1ebbb466ec580fc17.css" media="screen">
+    <script type="text/javascript" async="" src="./Integrating Checkout_files/mixpanel-2.2.min.js"></script><script async="" src="./Integrating Checkout_files/analytics.js"></script><script type="text/javascript">
+        var _sf_startpt=(new Date()).getTime()
+        var APIValues = {};
+    </script>
+    <script src="./Integrating Checkout_files/config-aead70c07cdca45cec67e4141bf18edc.js"></script>
+    
+<script type="application/json" id="analytics_config">{&quot;mixpanel&quot;:{&quot;identifier&quot;:&quot;eb71b6171a4f7ed97de9b7a0395b7ca5&quot;,&quot;disable&quot;:false,&quot;register&quot;:&quot;acct_17IiDqCDdQap5PvM&quot;,&quot;identify&quot;:&quot;usr_7XnpDS7hcbeqZDLZwr6P&quot;,&quot;person&quot;:&quot;mike@mdwbkny.com&quot;,&quot;name&quot;:&quot;mike@mdwbkny.com&quot;,&quot;user&quot;:&quot;usr_7XnpDS7hcbeqZDLZwr6P&quot;},&quot;ga&quot;:{&quot;isLoggedIn&quot;:true},&quot;merchant&quot;:&quot;acct_17IiDqCDdQap5PvM&quot;,&quot;user&quot;:&quot;usr_7XnpDS7hcbeqZDLZwr6P&quot;,&quot;trackpage&quot;:true}</script>
+
+<script src="./Integrating Checkout_files/analytics.min.js"></script>
+<script src="./Integrating Checkout_files/analytics-0ea5a2b2ad899260c73440d84f5ab7bc.js"></script>
+
+    <link rel="shortcut icon" href="https://stripe.com/favicon.ico">
+
+    <!--[if lt IE 9]>
+    <script src="/assets/html5shiv-17761200a17ebcb716dda86cca6d2472.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="./Integrating Checkout_files/gbh7uto.js"></script>
+    <style type="text/css">.tk-proxima-nova{font-family:"proxima-nova",sans-serif;}</style><link rel="stylesheet" href="./Integrating Checkout_files/l" media="all"><script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    
+    <meta name="csrf-token" content="g4AQz9SeYDPrPPT5tZpkyF75Nu5rjS6kjVTw1ycxYdQz1rFQpcCBR52M22c4nwQFU6Uc5VVXdNxPNJ4y4WBezA==">
+      <meta property="og:image" content="https://stripe.com/img/open-graph/logo.png?2">
+  <link rel="image_src" type="image/png" href="https://stripe.com/img/open-graph/logo.png?2">
+
+<link type="text/css" rel="stylesheet" href="./Integrating Checkout_files/button-qpwW2WfkB0oGWVWIASjIOQ.css"><style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style></head>
+<body id="documentation" cz-shortcut-listen="true">
+
+  <div id="header">
+    <h1><a href="https://stripe.com/">Stripe</a></h1>
+    <div class="navigation">
+    <div class="account-dropdown-view">
+      <a class="account">
+        <em style="background-image:url(https://secure.gravatar.com/avatar/f20573ab66c4d04f9c13c5b2f75791b0?s=32&amp;d=https://stripe.com/img/header/user/16x16.png)"><img src="./Integrating Checkout_files/f20573ab66c4d04f9c13c5b2f75791b0" width="16" height="16"></em>
+        <span>Your Account</span>
+      </a>
+      <div class="submenu">
+        <ul class="root">
+          <li><a href="https://dashboard.stripe.com/">Your Dashboard</a></li>
+          <li><a href="https://dashboard.stripe.com/account">Account Settings</a></li>
+        </ul>
+      </div>
+    </div>
+
+  <ul class="global">
+      <li><a href="https://dashboard.stripe.com/">Dashboard</a></li>
+    <li><a href="https://stripe.com/docs" class="selected">Documentation</a></li>
+    <li><a href="https://support.stripe.com/">Help &amp; Support</a></li>
+  </ul>
+</div>
+
+  </div><!-- #header -->
+
+  <section id="doc">
+
+
+  <nav>
+
+    <h1 class="references">Development</h1>
+    <ul>      <li class="unselected"><a href="https://stripe.com/docs">Getting Started</a></li>
+      <li class="selected sub"><a href="https://stripe.com/docs/checkout/tutorial">Embedded Form</a></li>
+      <li class="unselected sub"><a href="https://stripe.com/docs/custom-form">Custom Forms</a></li>
+      <li class="unselected sub"><a href="https://stripe.com/docs/mobile">Mobile Apps</a></li>
+      <li class="unselected"><a href="https://stripe.com/docs/charges">Charging Cards</a></li>
+      <li class="unselected"><a href="https://stripe.com/docs/testing">Testing</a></li>
+      <li class="unselected"><a href="https://stripe.com/docs/security">Security</a></li>
+      <li class="unselected"><a href="https://stripe.com/docs/fraud">Fraud Protection</a></li>
+      <li class="unselected"><a href="https://stripe.com/docs/webhooks">Webhooks</a></li>
+      <li class="unselected"><a href="https://stripe.com/docs/ach">ACH Guide</a></li>
+      <li class="unselected"><a href="https://stripe.com/docs/bitcoin">Bitcoin Guide</a></li>
+      <li class="unselected"><a href="https://stripe.com/docs/alipay">Alipay Guide</a></li>
+      <li class="unselected"><a href="https://stripe.com/docs/file-upload">File Upload Guide</a></li>
+</ul>
+
+    <h1 class="getting-started">Account</h1>
+    <ul>      <li class="unselected"><a href="https://stripe.com/docs/dashboard">Your Account</a></li>
+      <li class="unselected"><a href="https://stripe.com/docs/transfers">Getting Paid</a></li>
+      <li class="unselected"><a href="https://stripe.com/docs/disputes">Disputes</a></li>
+      <li class="unselected sub"><a href="https://stripe.com/docs/disputes/evidence">Submitting Evidence</a></li>
+      <li class="unselected sub"><a href="https://stripe.com/docs/disputes/types">Dispute Types</a></li>
+      <li class="unselected sub"><a href="https://stripe.com/docs/disputes/faq">Disputes FAQ</a></li>
+      <li class="unselected"><a href="https://stripe.com/docs/reporting">Reporting</a></li>
+      <li class="unselected"><a href="https://stripe.com/docs/integrations">Integrations</a></li>
+</ul>
+
+    <h1 class="faq">References</h1>
+    <ul>      <li class="unselected"><a href="https://stripe.com/docs/examples">Examples</a></li>
+      <li class="unselected"><a href="https://stripe.com/docs/stripe.js">Stripe.js</a></li>
+      <li class="unselected"><a href="https://stripe.com/docs/checkout">Checkout</a></li>
+      <li class="unselected"><a href="https://stripe.com/docs/recipes">Recipes</a></li>
+      <li class="unselected"><a href="https://stripe.com/docs/libraries">API Libraries</a></li>
+      <li class="unselected"><a href="https://stripe.com/docs/upgrades">API Upgrades</a></li>
+
+      <li class="unselected">
+        <a href="https://stripe.com/docs/api" class="external" target="_blank">Full API Reference</a>
+      </li>
+    </ul>
+
+    <h1 class="subscriptions">Subscriptions</h1>
+    <ul>      <li class="unselected"><a href="https://stripe.com/docs/subscriptions/tutorial">Getting Started</a></li>
+      <li class="unselected"><a href="https://stripe.com/docs/subscriptions/guide">Detailed Guide</a></li>
+</ul>
+
+    <h1 class="orders">Relay</h1>
+    <ul>      <li class="unselected"><a href="https://stripe.com/docs/relay">Overview</a></li>
+      <li class="unselected"><a href="https://stripe.com/docs/relay/apps-guide">Apps Guide</a></li>
+      <li class="unselected"><a href="https://stripe.com/docs/relay/apps-error-guide">Error Handling Guide</a></li>
+</ul>
+
+    <h1 class="connect">Connect</h1>
+    <ul>      <li class="unselected"><a href="https://stripe.com/docs/connect">Overview</a></li>
+      <li class="unselected"><a href="https://stripe.com/docs/connect/connecting-to-accounts">Connecting to Accounts</a></li>
+      <li class="unselected sub"><a href="https://stripe.com/docs/connect/standalone-accounts">Standalone Accounts</a></li>
+      <li class="unselected sub"><a href="https://stripe.com/docs/connect/authentication">Authentication</a></li>
+      <li class="unselected sub"><a href="https://stripe.com/docs/connect/reference">OAuth Reference</a></li>
+      <li class="unselected"><a href="https://stripe.com/docs/connect/payments-fees">Payments and Fees</a></li>
+      <li class="unselected"><a href="https://stripe.com/docs/connect/special-case-transfers">Special-case Transfers</a></li>
+      <li class="unselected"><a href="https://stripe.com/docs/connect/managed-accounts">Managed Accounts</a></li>
+      <li class="unselected sub"><a href="https://stripe.com/docs/connect/updating-accounts">Updating Accounts</a></li>
+      <li class="unselected sub"><a href="https://stripe.com/docs/connect/identity-verification">Identity Verification</a></li>
+      <li class="unselected sub"><a href="https://stripe.com/docs/connect/required-verification-information">Verification Fields</a></li>
+      <li class="unselected sub"><a href="https://stripe.com/docs/connect/testing-verification">Testing Verification</a></li>
+      <li class="unselected sub"><a href="https://stripe.com/docs/connect/bank-transfers">Bank Transfers</a></li>
+      <li class="unselected sub"><a href="https://stripe.com/docs/connect/migrating">Migrating Recipients</a></li>
+      <li class="unselected sub"><a href="https://stripe.com/docs/connect/best-practices">Best Practices</a></li>
+      <li class="unselected"><a href="https://stripe.com/docs/connect/testing">Testing</a></li>
+</ul>
+
+    <h1 class="more">About Stripe</h1>
+    <ul>      <li class="unselected"><a href="https://stripe.com/help/contact">Contact</a></li>
+      <li class="unselected"><a href="https://stripe.com/global">Global Users</a></li>
+      <li class="unselected last"><a href="https://stripe.com/gallery">Gallery</a></li>
+</ul>
+
+  </nav>
+
+    <section id="content">
+      
+<style type="text/css" media="screen">
+#doc .stripe-button-el {
+  margin: 20px 0 20px 0;
+}
+</style>
+
+<section id="details">
+
+  <header>
+    <h1>Integrating Checkout</h1>
+    <p>Stripe's embedded payment form, <a href="https://stripe.com/checkout">Checkout</a>, simplifies and secures online payment processing. Quickly integrate Checkout into your site to provide your users with a streamlined, mobile-ready payment experience that is constantly improving. If you need help after reading this, check out our answers to <a href="https://support.stripe.com/search?q=checkout">common questions</a> or chat live with other developers in <a href="irc://irc.freenode.net/stripe">#stripe</a> on freenode.
+
+    </p>
+  </header>
+
+  <article>
+    <aside class="intro note">
+      <h1>Complete requirements</h1>
+      <p>Checkout alone does not create a charge. Checkout fulfills the first half of the payment process, but <a href="https://stripe.com/docs/checkout/tutorial#tokens">server-side code</a> is also necessary.</p>
+    </aside>
+
+    <p>The easiest way to integrate Stripe is via Checkout, an embedded tool that takes care of building an HTML form, validating user input, and securing your customers' card data. Using Checkout, sensitive credit card information is sent directly to Stripe, and does not touch your server. Stripe returns to your site a <em>token</em> representation of the card, and this token can then be used in a charge request.
+    </p>
+
+    <p>Checkout is a fairly high-level solution. For a more custom approach, you can instead use Stripe with your own payment form via <a href="https://stripe.com/docs/custom-form">Stripe.js</a>.</p>
+
+    <p>To see Checkout in action, click the button below, filling in the resulting form with:</p>
+
+    <ul>
+      <li>Any random, syntactically valid email address (the more random, the better)</li>
+      <li>One of Stripe's <a href="https://stripe.com/docs/testing#cards">test card numbers</a>, such as <strong>4242 4242 4242 4242</strong></li>
+      <li>Any three digit CVC code</li>
+      <li>Any expiration date in the future</li>
+    </ul>
+
+    <div class="stripe-button-container">
+    <script src="./Integrating Checkout_files/checkout.js" class="stripe-button active" data-key="pk_test_pBOPKnFp4Sg0ZW4Fb1CoJyEp" data-amount="999" data-name="The League" data-description="Widget" data-image="/img/documentation/checkout/marketplace.png" data-locale="auto" data-notrack="">
+    </script><button type="submit" class="stripe-button-el" style="visibility: visible;"><span style="display: block; min-height: 30px;">Pay with Card</span></button>
+    </div>
+
+    <h2 id="embedding">Embedding Checkout in your site<a href="https://stripe.com/docs/checkout/tutorial#embedding" class="header-anchor"></a></h2>
+
+    <p>To get started, add the following code to your payment page:</p>
+
+    <section class="code-example">
+      <div class="terminal-wrap">
+<pre><code><span class="highlight_js xml hljs"><span class="hljs-tag">&lt;<span class="hljs-title">form</span> <span class="hljs-attribute">action</span>=<span class="hljs-value">""</span> <span class="hljs-attribute">method</span>=<span class="hljs-value">"POST"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">script</span>
+    <span class="hljs-attribute">src</span>=<span class="hljs-value">"https://checkout.stripe.com/checkout.js"</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"stripe-button"</span>
+    <span class="hljs-attribute">data-key</span>=<span class="hljs-value">"pk_test_pBOPKnFp4Sg0ZW4Fb1CoJyEp"</span>
+    <span class="hljs-attribute">data-amount</span>=<span class="hljs-value">"999"</span>
+    <span class="hljs-attribute">data-name</span>=<span class="hljs-value">"The League"</span>
+    <span class="hljs-attribute">data-description</span>=<span class="hljs-value">"Widget"</span>
+    <span class="hljs-attribute">data-image</span>=<span class="hljs-value">"/img/documentation/checkout/marketplace.png"</span>
+    <span class="hljs-attribute">data-locale</span>=<span class="hljs-value">"auto"</span>&gt;</span><span class="javascript">
+  </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">form</span>&gt;</span></span></code></pre>
+      </div>
+    </section>
+
+    <p>The most important line is the <code>data-key</code> attribute added to the script tag. This key identifies your account when communicating with Stripe. We've pre-filled the example with your <a href="https://dashboard.stripe.com/account/apikeys">test API key</a>. Only you can see this value.</p>
+<p></p>
+
+    <p>You will need to replace the test key with your live key for production uses. When you're ready, learn more about how the keys play into <a href="https://stripe.com/docs/dashboard#livemode-and-testing">test and live modes</a>.
+    </p>
+
+    <p>Although optional, we highly recommend also having Checkout collect the user's postal code as <a href="https://support.stripe.com/questions/what-is-avs">address and postal code verifications</a> help reduce fraud. Simply add <code>data-zip-code="true"</code> to the above and enable declines on verification failures in your <a href="https://dashboard.stripe.com/account">account settings</a>.</p>
+
+    <p>An alternative to the blue button demonstrated above is to implement a <a href="https://stripe.com/docs/checkout#integration-custom">custom Checkout integration</a>. The custom approach allows you to use any HTML element or JavaScript event to open Checkout, as well as be able to specify dynamic arguments, such as custom amounts.</p>
+
+    <h2 id="tokens">Generating and using tokens<a href="https://stripe.com/docs/checkout/tutorial#tokens" class="header-anchor"></a></h2>
+
+    <aside class="content note">
+      <h1>Example integrations</h1>
+      <p>Read a Checkout integration guide to get up and running as quickly as possible:
+      </p>
+
+      <ul>
+        <li><a href="https://stripe.com/docs/checkout/sinatra" class="arrow">Sinatra</a></li>
+        <li><a href="https://stripe.com/docs/checkout/rails" class="arrow">Rails</a></li>
+        <li><a href="https://stripe.com/docs/checkout/flask" class="arrow">Flask</a></li>
+        <li><a href="https://stripe.com/docs/checkout/php" class="arrow">PHP</a></li>
+      </ul>
+    </aside>
+
+    <p>With Stripe, sensitive cardholder data does not hit your server, greatly minimizing your PCI compliance burden. Stripe takes care of the hardest parts of PCI compliance, like redacting logs and encrypting card details. Just enable <a href="https://stripe.com/docs/checkout#https">HTTPS</a> on your checkout page, and we'll take over from there.
+    </p>
+
+    <p>Here's the whole workflow:</p>
+
+    <ol>
+      <li>The customer arrives at your payment page that includes the Checkout code, loaded over HTTPS.</li>
+      <li>The customer clicks the payment button (e.g., <strong>Pay with Card</strong>), completes the payment form, and clicks <strong>Pay $9.99</strong> within the Checkout window (or whatever your Checkout pay button is).</li>
+      <li>Checkout sends the payment details directly to Stripe from the customer's browser, assuming the details pass basic validation.</li>
+      <li>Stripe returns a token to Checkout, or an error message if the card-network validation fails.</li>
+      <li>Checkout takes the returned token and stores it in the page's primary form—the one surrounding the script tag above, in a hidden element named <code>stripeToken</code>.</li>
+      <li>Checkout submits the form to your server.</li>
+      <li>Your server uses the posted token to <a href="https://stripe.com/docs/charges">charge the card</a>.</li>
+    </ol>
+
+    <p>If need be, revisit the Checkout demo at the top of the page to see these first four steps in action.</p>
+
+    <p class="notification">Checkout, running in the browser, securely accepts the payment information but does not initiate a payment attempt. The actual charge request is triggered from your server.</p>
+
+    <hr>
+    <h2>Next up</h2>
+    <p>
+      Once the form, with the stored payment token, is submitted to your server, you'll want to use the payment details just collected. Usually this means one of three actions:
+    </p>
+    <ul>
+      <li><a href="https://stripe.com/docs/charges">Charging the customer immediately</a></li>
+      <li><a href="https://stripe.com/docs/charges#saving-credit-card-details-for-later">Saving the credit card details for later</a></li>
+      <li><a href="https://stripe.com/docs/recipes/subscription-signup">Signing your customer up to a subscription</a></li>
+    </ul>
+
+    <p>For a more advanced Checkout integration, learn how to <a href="https://stripe.com/docs/recipes/variable-amount-checkout">dynamically display a user-supplied charge amount</a>. You can also learn how to use Checkout to <a href="https://stripe.com/docs/recipes/updating-customer-cards">handle customer card updates on your website</a>.</p>
+
+  </article>
+</section>
+
+
+      <footer class="clearfix">
+  <section class="questions">
+    <h1>Questions?</h1>
+    <p>We're always happy to help with code or other questions you might have! <a href="https://support.stripe.com/">Search</a> our site for more information or <a href="https://support.stripe.com/email">send us an email</a>!</p>
+  </section>
+</footer>
+    </section>
+
+  </section><!-- #documentation -->
+
+  <div id="footer">
+    <div class="country-dropdown-view">
+        <a class="select">
+            <span>
+                <img src="./Integrating Checkout_files/us.png" width="23" height="17" data-hires="true">
+                <strong>United States</strong>
+            </span>
+        </a>
+
+        <div class="popover">
+            <div class="arrow"></div>
+            <h4>Select your Country</h4>
+            <ul>
+                    <li>
+                        <a href="https://stripe.com/country?country=AU&amp;redirect=/docs/checkout/tutorial">
+                            <img src="./Integrating Checkout_files/au.png" width="23" height="17" data-hires="true">
+                            <span>Australia</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=CA&amp;redirect=/docs/checkout/tutorial">
+                            <img src="./Integrating Checkout_files/ca.png" width="23" height="17" data-hires="true">
+                            <span>Canada</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=DK&amp;redirect=/docs/checkout/tutorial">
+                            <img src="./Integrating Checkout_files/dk.png" width="23" height="17" data-hires="true">
+                            <span>Denmark</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=FI&amp;redirect=/docs/checkout/tutorial">
+                            <img src="./Integrating Checkout_files/fi.png" width="23" height="17" data-hires="true">
+                            <span>Finland</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=GB&amp;redirect=/docs/checkout/tutorial">
+                            <img src="./Integrating Checkout_files/gb.png" width="23" height="17" data-hires="true">
+                            <span>United Kingdom</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=IE&amp;redirect=/docs/checkout/tutorial">
+                            <img src="./Integrating Checkout_files/ie.png" width="23" height="17" data-hires="true">
+                            <span>Ireland</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=NO&amp;redirect=/docs/checkout/tutorial">
+                            <img src="./Integrating Checkout_files/no.png" width="23" height="17" data-hires="true">
+                            <span>Norway</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=SE&amp;redirect=/docs/checkout/tutorial">
+                            <img src="./Integrating Checkout_files/se.png" width="23" height="17" data-hires="true">
+                            <span>Sweden</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=US&amp;redirect=/docs/checkout/tutorial" class="selected">
+                            <img src="./Integrating Checkout_files/us.png" width="23" height="17" data-hires="true">
+                            <span>United States</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=AT&amp;redirect=/docs/checkout/tutorial">
+                            <img src="./Integrating Checkout_files/at.png" width="23" height="17" data-hires="true">
+                            <span>Austria</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=BE&amp;redirect=/docs/checkout/tutorial">
+                            <img src="./Integrating Checkout_files/be.png" width="23" height="17" data-hires="true">
+                            <span>Belgium</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=BR&amp;redirect=/docs/checkout/tutorial">
+                            <img src="./Integrating Checkout_files/br.png" width="23" height="17" data-hires="true">
+                            <span>Brazil</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=FR&amp;redirect=/docs/checkout/tutorial">
+                            <img src="./Integrating Checkout_files/fr.png" width="23" height="17" data-hires="true">
+                            <span>France</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=DE&amp;redirect=/docs/checkout/tutorial">
+                            <img src="./Integrating Checkout_files/de.png" width="23" height="17" data-hires="true">
+                            <span>Germany</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=HK&amp;redirect=/docs/checkout/tutorial">
+                            <img src="./Integrating Checkout_files/hk.png" width="23" height="17" data-hires="true">
+                            <span>Hong Kong</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=IT&amp;redirect=/docs/checkout/tutorial">
+                            <img src="./Integrating Checkout_files/it.png" width="23" height="17" data-hires="true">
+                            <span>Italy</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=JP&amp;redirect=/docs/checkout/tutorial">
+                            <img src="./Integrating Checkout_files/jp.png" width="23" height="17" data-hires="true">
+                            <span>Japan</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=LU&amp;redirect=/docs/checkout/tutorial">
+                            <img src="./Integrating Checkout_files/lu.png" width="23" height="17" data-hires="true">
+                            <span>Luxembourg</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=MX&amp;redirect=/docs/checkout/tutorial">
+                            <img src="./Integrating Checkout_files/mx.png" width="23" height="17" data-hires="true">
+                            <span>Mexico</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=NL&amp;redirect=/docs/checkout/tutorial">
+                            <img src="./Integrating Checkout_files/nl.png" width="23" height="17" data-hires="true">
+                            <span>Netherlands</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=NZ&amp;redirect=/docs/checkout/tutorial">
+                            <img src="./Integrating Checkout_files/nz.png" width="23" height="17" data-hires="true">
+                            <span>New Zealand</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=PT&amp;redirect=/docs/checkout/tutorial">
+                            <img src="./Integrating Checkout_files/pt.png" width="23" height="17" data-hires="true">
+                            <span>Portugal</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=SG&amp;redirect=/docs/checkout/tutorial">
+                            <img src="./Integrating Checkout_files/sg.png" width="23" height="17" data-hires="true">
+                            <span>Singapore</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=ES&amp;redirect=/docs/checkout/tutorial">
+                            <img src="./Integrating Checkout_files/es.png" width="23" height="17" data-hires="true">
+                            <span>Spain</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=CH&amp;redirect=/docs/checkout/tutorial">
+                            <img src="./Integrating Checkout_files/ch.png" width="23" height="17" data-hires="true">
+                            <span>Switzerland</span>
+                        </a>
+                    </li>
+          </ul>
+        </div>
+    </div>
+
+
+    <p><a href="https://stripe.com/">© Stripe</a></p>
+
+    <ul>
+        <li><a href="https://status.stripe.com/"><span>System Status</span></a></li>
+        <li><a href="https://stripe.com/about">About</a></li>
+        <li><a href="https://stripe.com/blog"><span>Blog</span></a></li>
+        <li><a href="https://stripe.com/jobs"><span>Jobs</span></a></li>
+        <li><a href="http://twitter.com/stripe">Twitter</a></li>
+    </ul>
+    <ul class="lesser">
+        <li><a href="https://stripe.com/terms">Terms of Service</a></li>
+        <li><a href="https://stripe.com/privacy">Privacy Policy</a></li>
+    </ul>
+</div>
+<div class="country-dropdown-overlay"></div>
+
+    <script src="./Integrating Checkout_files/jquery-47d53801b9f61ca8a21dcc2571aeb3ec.js"></script>
+    <script src="./Integrating Checkout_files/shared-3abadcaa3af6e785a085062e45894014.js"></script>
+
+
+  <script>
+jQuery(function($){
+  $('.stripe-button').on('token', function(e, token){
+    var id = $('<span/>');
+    id.text(token.id);
+    $('.stripe-button-container').replaceWith('<p>Your Stripe token is: <strong>' + id.html() + '</strong>.</p>');
+  });
+});
+</script>
+
+
+  <script src="./Integrating Checkout_files/documentation-4ba5fcc79adb6fc04e36d4af597eb53b.js"></script>
+  <script src="./Integrating Checkout_files/highlight.pack-2286570da0bb1b3179fb57ccf73939c5.js"></script>
+<script src="./Integrating Checkout_files/highlighter-e9cf653413c50b1b2558992fba0cb323.js"></script>
+
+  <script type="text/javascript">
+    Analytics.viewed("docs");
+  </script>
+
+
+<script type="text/javascript">(function () {
+        return window.SIG_EXT = {};
+      })()</script><iframe frameborder="0" allowtransparency="true" src="./Integrating Checkout_files/yiWszEIcz0H0K2eT1bmgQ.html" name="stripe_checkout_app" class="stripe_checkout_app" style="z-index: 2147483647; display: none; border: 0px none transparent; overflow-x: hidden; overflow-y: auto; visibility: visible; margin: 0px; padding: 0px; -webkit-tap-highlight-color: transparent; position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.00392157);"></iframe></body></html>

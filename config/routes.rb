@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'teams'=> 'users#index'
   get 'dues' => 'users#dues'
   get 'trophies' => 'users#trophies'
-  get 'champions' => 'users#champions'
+  get 'shiva' => 'users#shiva'
   get 'sacko' => 'users#sacko'
   
   resources :charges
