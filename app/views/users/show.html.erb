@@ -20,7 +20,11 @@
 
 <p>
   <strong>Paid:</strong>
-  <%= @user.paid %>
+  <% if @user.paid == true %>
+            <td class="true">Yes</td>
+            <% else %>
+            <td class="false">No</td>
+            <% end %>
 </p>
 
 <p>
