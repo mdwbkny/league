@@ -29,7 +29,7 @@
 
 <p>
   <strong>Date paid:</strong>
-  <%= @user.date_paid.strftime("%D @ %I:%M%P") %>
+  <%= @user.date_paid %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user), class:"btn btn-primary" %>
